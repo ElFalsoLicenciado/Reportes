@@ -124,21 +124,51 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.8 \linewidth]{img/Resumen Flynn.png}
+                \caption{Resumen de los diseños de cada taxonmía}
             \end{figure}
     
     \section{Multiprocesamiento}
+        Multiprocesamiento o multiproceso es el uso de dos o más procesadores (CPU) en una computadora para la ejecución de uno o varios procesos (programas corriendo). Algunas personas, en el idioma español hacen sinónimo este término con el de multitareas (del inglés multitasking) el cual consiste en la ejecución de uno o más procesos concurrentes en un sistema. Así como la multitarea permite a múltiples procesos compartir una única CPU, múltiples CPU pueden ser utilizados para ejecutar múltiples procesos o múltiples hilos (threads) dentro de un único proceso.\newline
+
+        El multiprocesamiento se ha empleado desde los años 60 en los entornos de cómputo de alto rendimiento; a pesar de esto, durante muchos años no muchos tomaban esta área de especialización, una computadora que contara con más de un procesador era cara y debido a esto muchos decidían no hacer uso de más de un procesador. Hasta que en 2005 y después de cumplirse 40 años del modelo conocido como Ley de Moore, se empezaron a exceder los 3 GHz de velocidad de esta manera creando problemas de calentamiento motivando el uso de múltiples procesadores. \newpage
+
 
         \subsection{Simétrico (SMP)}
+            El multiprocesamiento simétrico o multiprocesamiento de memoria compartida (SMP) involucra una arquitectura de hardware y software de computadora multiprocesador donde dos o más procesadores idénticos están conectados a una sola memoria principal compartida, tienen acceso total a todos los dispositivos de entrada y salida, y están controlados por una sola instancia del sistema operativo que trata a todos los procesadores por igual, sin reservar ninguno para propósitos especiales. La mayoría de los sistemas multiprocesador actuales utilizan una arquitectura SMP. En el caso de los procesadores multinúcleo, la arquitectura SMP se aplica a los núcleos y los trata como procesadores independientes.\newline
 
+            Los sistemas SMP permiten que cualquier procesador trabaje en cualquier tarea sin importar su localización en memoria; con un propicio soporte del sistema operativo, estos sistemas pueden mover fácilmente tareas entre los procesadores para garantizar eficientemente el trabajo.\newline
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7 \linewidth]{img/SMP.png}
+                \caption{}
+            \end{figure}
+
+            \newpage
 
         \subsection{Heterogéneo}
-
+            Se refiere a un enfoque de computación que utiliza diferentes tipos de procesadores o arquitecturas para llevar a cabo tareas específicas. Este método permite aprovechar las fortalezas de cada tipo de procesador, como CPUs, GPUs y FPGAs, optimizando así el rendimiento y la eficiencia energética. En el contexto de sistemas distribuidos y procesamiento de datos, el procesamiento heterogéneo se vuelve crucial, ya que permite la ejecución de cargas de trabajo diversas en entornos que requieren escalabilidad y flexibilidad.
 
         \subsection{Cluster}
+            Un clúster es un tipo de arquitectura paralela distribuida que consiste de un conjunto de computadores independientes interconectados operando de forma conjunta como único recurso computacional sin embargo, cada computador puede utilizarse de forma independiente o separada.\newline
+
+            En esta arquitectura, el computador paralelo es esencialmente una colección de procesadores secuenciales, cada uno con su propia memoria local, que pueden trabajar conjuntamente.\newline
+
+            \begin{itemize}
+                \item Cada nodo tiene rápido acceso a su propia memoria y acceso a la memoria de otros nodos mediante una red de comunicaciones, habitualmente una red de comunicaciones de alta velocidad. 
+
+                \item Los datos son intercambiados entre los nodos como mensajes a través de la red. 
+
+                \item Una red de ordenadores, especialmente si disponen de una interconexión de alta velocidad, puede ser vista como un multicomputador de memoria distribuida y como tal ser utilizada para resolver problemas mediante computación paralela.
+            \end{itemize}
+
+            La construcción de los ordenadores del clúster es más fácil y económica debido a su flexibilidad: pueden tener toda la misma configuración de hardware y sistema operativo diferente rendimiento pero con arquitectura y sistemas operativos similares o tener diferente hardware y sistema operativo lo que hace más fácil y económica su construcción. Para que un clúster funcione como tal no basta solo con conectar entre si los ordenadores, sino que es necesario proveer un sistema de manejo del clúster, el cual se encargue de interactuar con el usuario y los procesos que ocurren en él para optimizar el funcionamiento. 
 
 
     \section{Tipos de paralelismo}
-
+        Una de las características clave del multiprocesamiento es la capacidad de realizar múltiples tareas al mismo tiempo. Esto se logra al distribuir las tareas entre los diferentes procesadores, lo que permite una mayor eficiencia en el manejo de la carga de trabajo.\newline
+        
+        
         \subsection{A nivel de bit}
 
         
@@ -155,20 +185,30 @@
     
     
     \section{Bibliografía.}
-    Adictech. (2024, April 9). ¿Qué es la Computación Paralela?: Beneficios y Aplicaciones. Adictec - Adicción Por La Tecnología. \url{https://adictec.com/que-es-computacion-paralela/}
+    \begin{enumerate}
+        \item Adictech. (2024, April 9). ¿Qué es la Computación Paralela?: Beneficios y Aplicaciones. Adictec - Adicción Por La Tecnología. \url{https://adictec.com/que-es-computacion-paralela/}
 
-    de, B. (2025). Curso - 4.1 Aspectos Básicos de la Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-1-aspectos-b%C3%A1sicos-de-la-computaci%C3%B3n-paralela}
+        \item de, B. (2025). Curso - 4.1 Aspectos Básicos de la Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-1-aspectos-b%C3%A1sicos-de-la-computaci%C3%B3n-paralela}
 
-    Taxonomía de Flynn  AcademiaLab. (2024). Academia-Lab.com. \url{https://academia-lab.com/enciclopedia/taxonomia-de-flynn/}
+        \item Taxonomía de Flynn AcademiaLab. (2024). Academia-Lab.com. \url{https://academia-lab.com/enciclopedia/taxonomia-de-flynn/}
 
-    de, T. (2025). Curso - 4.2 Tipos de Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-2-tipos-de-computaci%C3%B3n-paralela?authuser=0}
+        \item de, T. (2025). Curso - 4.2 Tipos de Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-2-tipos-de-computaci%C3%B3n-paralela?authuser=0}
+
+        \item de, C. (2005, February 13). uso de dos o más procesadores (CPU) en una computadora para la ejecución de uno o varios procesos. Wikipedia.org; Wikimedia Foundation, Inc. \url{https://es.wikipedia.org/wiki/Multiprocesamiento}
+
+        \item Multiprocesamiento simétrico AcademiaLab. (2024). Academia-Lab.com. \url{https://academia-lab.com/enciclopedia/multiprocesamiento-simetrico/}
+
+        \item Procesamiento Heterogu00e9neo. (2025). Glosarix. \url{https://glosarix.com/glossary/procesamiento-heterogeneo/}
+        
+        \item de, S. (2025). Curso - 4.4 Sistemas de Memoria Distribuida. Multicomputadores: Clusters. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-4-sistemas-de-memoria-distribuida-multicomputadores-clusters?authuser=0}
+        
+        \item Todo sobre el multiprocesamiento: definición y tipos más comunes. (2024). Venceya.com. \url{https://venceya.com/multiprocesamiento-en-que-consiste-tipos/}
+        
+        \item 
+
+‌ 
+    \end{enumerate}
 
 ‌
-
 ‌
-
-‌
-‌
-
-
 \end{document}
