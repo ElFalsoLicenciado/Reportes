@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[export]{adjustbox}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=1.5cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{apacite,xurl,hyperref,pdfpages,graphicx,sectsty,ragged2e}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{float,array,listings,enumitem,subcaption,charter,amsfonts,amsthm,amsmath,mathtools}
+\newtheorem{theorem}{Caso}
+\sectionfont{\huge{}\underline\centering}
+\subsectionfont{\LARGE{}\centering\textit}
+\subsubsectionfont{\LARGE{}\centering\textbf}
+\usepackage[affil-it]{authblk}
+\renewcommand\Authfont{\fontsize{20}{25}\selectfont}
+\usepackage[tablename=Tabla ]{caption}
+\usepackage[figurename=Imagen ]{caption}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tab}{$\quad$}
+
+\begin{document}
+\includepdf{portada lab.pdf}
+
+\justifying
+
+\Large
+\tableofcontents\newpage
+
+\Large
+
+    \section{Introducción.}
+    
+        El procesamiento paralelo es un método del campo de la computación que permite que dos o más procesadores de una computadora se utilicen para trabajar en partes separadas de una tarea. De esta manera, es posible reducir el tiempo dedicado a resolver el problema.\newline
+
+        El concepto de computación paralela comenzó a desarrollarse a finales de la década de 1950 por investigadores de IBM. Ellos creían que una sola computadora no satisfaría la creciente demanda de potencia de procesamiento. Una posible solución sería tener dos procesadores (o núcleos) trabajando simultáneamente.\newline
+
+        El primer chip comercial con múltiples núcleos fue el IBM Power4, lanzado en 2001. El procesador, basado en la arquitectura PowerPC, era un dual-core con una frecuencia de 1,1 a 1,3 GHz. La CPU, que fue la primera en tener dos núcleos en un solo chip de silicio, se fabricaba en una litografía de 180 nanómetros.\newline
+
+        Hay varias formas diferentes de computación paralela: Paralelismo a nivel de bit, paralelismo a nivel de instrucción, paralelismo de datos y paralelismo de tareas. El paralelismo se ha empleado durante muchos años, sobre todo en la computación de altas prestaciones, pero el interés en ella ha crecido últimamente debido a las limitaciones físicas que impiden el aumento de la frecuencia. Como el consumo de energía —y por consiguiente la generación de calor— de las computadoras constituye una preocupación en los últimos años, la computación en paralelo se ha convertido en el paradigma dominante en la arquitectura de computadores, principalmente en forma de procesadores multinúcleo.\newline
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5 \linewidth]{img/ProcesamientoParalelo1.png}
+            \caption{Imagen de ilustracion.}
+        \end{figure}
+
+    \section{Taxonomía de Flynn}
+        
+        La taxonomía de Flynn es un sistema de clasificación de arquitecturas que se basa en la idea de cuántos flujos de instrucciones y cuántos flujos de datos puede manipular una computadora simultáneamente. Fue creada por el científico de la computación Michael J. Flynn en 1966 y se utiliza hasta el día de hoy en el concepto de computación paralela.\newline
+
+        El flujo de instrucciones es una secuencia de instrucciones ejecutadas por el procesador. Una instrucción es una “orden” dada al chip para realizar una operación específica, como una adición o una resta. Cuando tenemos varias órdenes consecutivas, tenemos un flujo de instrucciones.\newline
+
+        Por otro lado, el flujo de datos es el conjunto de datos sobre los cuales se ejecutan las instrucciones. Volviendo al ejemplo matemático anterior, los números que se sumarían o restarían serían el flujo de datos en un procesador.\newline
+
+        
+
+
+
+    
+        \subsection{SISD}
+
+        
+        \subsection{SIMD}
+
+
+        \subsection{MISMD}
+
+
+        \subsection{MIMD}
+        
+
+
+    \section{Multiprocesamiento}
+
+        \subsection{Simétrico (SMP)}
+
+
+        \subsection{Heterogéneo}
+
+
+        \subsection{Cluster}
+
+
+    \section{Tipos de paralelismo}
+
+        \subsection{A nivel de bit}
+
+        
+        \subsection{A nivel de instrucción}
+
+
+        \subsection{De datos}
+
+
+        \subsection{De tareas}
+    
+    
+    \section{Conclusión.}
+    
+    
+    \section{Bibliografía.}
+    Adictech. (2024, April 9). ¿Qué es la Computación Paralela?: Beneficios y Aplicaciones. Adictec - Adicción Por La Tecnología. \url{https://adictec.com/que-es-computacion-paralela/}
+
+    de, B. (2025). Curso - 4.1 Aspectos Básicos de la Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-1-aspectos-b%C3%A1sicos-de-la-computaci%C3%B3n-paralela}
+
+‌
+‌
+
+
+\end{document}

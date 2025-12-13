@@ -1,0 +1,577 @@
+\documentclass{article}
+\usepackage[export]{adjustbox}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=1.2cm,bottom=1.3cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{apacite,xurl,hyperref,pdfpages,graphicx,sectsty,ragged2e}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{float,array,listings,enumitem,subcaption,charter,amsfonts,amsthm,amsmath,mathtools}
+\newtheorem{theorem}{Caso}
+\sectionfont{\huge{}\underline\centering}
+\subsectionfont{\LARGE{}\centering\textit}
+\subsubsectionfont{\LARGE{}\centering\textbf}
+\usepackage[affil-it]{authblk}
+\renewcommand\Authfont{\fontsize{20}{25}\selectfont}
+\usepackage[tablename=Tabla ]{caption}
+\usepackage[figurename=Imagen ]{caption}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tab}{$\quad$}
+
+\begin{document}
+\includepdf{portada lab.pdf}
+\LARGE
+\tableofcontents\newpage
+
+\justifying
+
+\Large
+
+\section{Desarrollo}
+
+    \subsection{Tabla de verdad y circuito.}
+
+    Con este circuito:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=0.2\linewidth]{XOR.png}
+        \caption{Circuito del punto 1.}
+    \end{figure}
+
+    Debemos comprobar la siguiente tabla de verdad:
+
+    \begin{table}[H]
+        \Large \centering
+        \begin{tabular}{|c|c|c|} \hline
+            A& B& X \\ \hline
+            0& 0& 0 \\ \hline
+            0& 1& 1 \\ \hline
+            1& 1& 0 \\ \hline
+            1& 0& 1 \\ \hline
+        \end{tabular}
+        \caption{Tabla de verdad del circuito.}
+    \end{table}
+
+    De la tabla verdad obtenemos: $X = A'B + AB'$
+
+    Cada una de las posibles combinaciones simulado resulta en:
+
+    \begin{figure}[H]
+        \begin{subfigure}{0.6\textwidth}
+            \centering
+            \includegraphics[width=0.65\linewidth]{00.png}
+            \caption{A = 0 y B = 0.}
+        \end{subfigure}
+        \begin{subfigure}{0.6\textwidth}
+            \RaggedRight
+            \includegraphics[width=0.65\linewidth]{01.png}
+            \caption{A = 0 y B = 1}
+        \end{subfigure}
+        
+        \begin{subfigure}{0.6\textwidth}
+            \centering
+            \includegraphics[width=0.65\linewidth]{11.png}
+            \caption{A = 1 y B = 1.}
+        \end{subfigure}
+        \begin{subfigure}{0.6\textwidth}
+            \RaggedRight
+            \includegraphics[width=0.65\linewidth]{10.png}
+            \caption{A = 1 y B = 0}
+        \end{subfigure}
+
+        \caption{Circuito en cada una de las combinaciones.}
+    \end{figure}\newpage
+
+    Si somos perspicaces nos damos cuenta que el la tabla de verdad es la misma que una compuerta XOR. Por ende, el circuito que se arma es la representación interna de una compuerta XOR.
+
+    \subsection{Leyes de Identidad.}
+
+    \begin{itemize}
+        
+        \item $A+0 = A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& 0& X \\ \hline
+                    0& 0&  0\\ \hline
+                    1& 0&  1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+0$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/A+0.png}
+                \caption{Circuito de $A+0$}
+            \end{figure}
+
+        \item $A1 = A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& 1& X \\ \hline
+                    0& 1& 0 \\ \hline
+                    1& 1& 1 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A1$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/A1.png}
+                \caption{Circuito de $A1$}
+            \end{figure}
+
+    \end{itemize}
+    
+    \newpage    
+    \subsection{Leyes de Anulación.}
+
+    \begin{itemize}
+        \item $A0 = 0$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& 0& X \\ \hline
+                    0& 0&  0\\ \hline
+                    1& 0&  0\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A0$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/A0.png}
+                \caption{Circuito de $A0$}
+            \end{figure}
+        \item $A+1 = 1$ 
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& 1& X \\ \hline
+                    0& 1&  1\\ \hline
+                    1& 1&  1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+1$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/A+1.png}
+                \caption{Circuito de $A0$}
+            \end{figure}
+    \end{itemize}
+
+    
+    \subsection{Leyes de Idempotencia.}
+    
+    \begin{itemize}
+        
+        \item $A + A = A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|} \hline
+                    A& X \\ \hline
+                    0& 0  \\ \hline
+                    1& 1  \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+A$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.45\linewidth]{Com/A+A.png}
+                \caption{Circuito de $A + A$}
+            \end{figure}
+
+        \item $AA = A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|} \hline
+                    A& X \\ \hline
+                    0& 0  \\ \hline
+                    1& 1  \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $AA$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.45\linewidth]{Com/AA.png}
+                \caption{Circuito de $AA$}
+            \end{figure}
+
+    \end{itemize}
+
+    
+    \subsection{Leyes de Complemento.}
+
+    \begin{itemize}
+        \item $A\bar{A} = 0$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& $\bar{\text{A}}$& X \\ \hline
+                    0& 1 & 0 \\ \hline
+                    1& 0 & 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A\bar{A}$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.45\linewidth]{Com/AA'.png}
+                \caption{Circuito de $A\bar{A}.$}
+            \end{figure}
+
+            \newpage
+            \item $A+\bar{A} = 1$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& $\bar{\text{A}}$ & X \\ \hline
+                    0& 1 & 1 \\ \hline
+                    1& 0 & 1 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+\bar{A}$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.45\linewidth]{Com/A+A'.png}
+                \caption{Circuito de $A+\bar{A}.$}
+            \end{figure}
+    \end{itemize}
+
+    \subsection{Leyes Conmutativas.}
+    
+    \begin{itemize}
+        \item $A + B = B + A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 1 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 1 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+B$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{Com/A+B.png}
+                \caption{Circuito de $A+B$}
+            \end{figure}
+            
+            \newpage
+            \item $AB = BA$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 0 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $AB$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{Com/AB.png}
+                \caption{Circuito de $AB$}
+            \end{figure}
+    \end{itemize}
+
+
+    \subsection{Leyes Asociativas.}
+
+    \begin{itemize}
+        \item $A+(B+C) = (A+B)+C$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|c|} \hline
+                    A& B& C&X \\ \hline
+                    0& 0& 0& 0\\ \hline
+                    0& 0& 1& 1\\ \hline
+                    0& 1& 0& 1\\ \hline
+                    0& 1& 1& 1\\ \hline
+                    1& 0& 0& 1\\ \hline
+                    1& 0& 1& 1\\ \hline
+                    1& 1& 0& 1\\ \hline
+                    1& 1& 1& 1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+(B+C)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=0.8\linewidth]{Com/A+B+C1.png}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \RaggedRight
+                    \includegraphics[width=0.7\linewidth]{Com/A+B+C2.png}
+                \end{subfigure}
+            \caption{Circutos de $A+(B+C) = (A+B)+C$}
+            \end{figure}
+        
+        \item $A(BC) = (AB)C$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|c|} \hline
+                    A& B& C&X \\ \hline
+                    0& 0& 0& 0\\ \hline
+                    0& 0& 1& 0\\ \hline
+                    0& 1& 0& 0\\ \hline
+                    0& 1& 1& 0\\ \hline
+                    1& 0& 0& 0\\ \hline
+                    1& 0& 1& 0\\ \hline
+                    1& 1& 0& 0\\ \hline
+                    1& 1& 1& 1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $ABC$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=0.8\linewidth]{Com/ABC1.png}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \RaggedRight
+                    \includegraphics[width=0.75\linewidth]{Com/ABC2.png}
+                \end{subfigure}
+            \caption{Circutos de $A(BC) = (AB)C$}
+            \end{figure}
+    \end{itemize}
+
+    \newpage
+
+    \subsection{Leyes Distributivas.}
+
+    \begin{itemize}
+        \item $A(B+C) = AB+AC$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|c|} \hline
+                    A& B& C&X \\ \hline
+                    0& 0& 0& 0\\ \hline
+                    0& 0& 1& 0\\ \hline
+                    0& 1& 0& 0\\ \hline
+                    0& 1& 1& 0\\ \hline
+                    1& 0& 0& 0\\ \hline
+                    1& 0& 1& 1\\ \hline
+                    1& 1& 0& 1\\ \hline
+                    1& 1& 1& 1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A(BC)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=0.8\linewidth]{Com/A(B+C)1.png}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \RaggedRight
+                    \includegraphics[width=0.75\linewidth]{Com/A(B+C)2.png}
+                \end{subfigure}
+            \caption{Circutos de $A(B+C) = AB+AC$}
+            \end{figure}
+        
+        \item $A+(BC) = (A+B)(A+C)$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|c|} \hline
+                    A& B& C&X \\ \hline
+                    0& 0& 0& 0\\ \hline
+                    0& 0& 1& 0\\ \hline
+                    0& 1& 0& 0\\ \hline
+                    0& 1& 1& 1\\ \hline
+                    1& 0& 0& 1\\ \hline
+                    1& 0& 1& 1\\ \hline
+                    1& 1& 0& 1\\ \hline
+                    1& 1& 1& 1\\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A+(BC)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=0.8\linewidth]{Com/A+(BC)1.png}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \RaggedRight
+                    \includegraphics[width=0.8\linewidth]{Com/A+(BC)2.png}
+                \end{subfigure}
+            \caption{Circutos de $A+(BC) = (AB)(AC)$}
+            \end{figure}
+
+    \end{itemize}
+
+
+    \subsection{Leyes de Absorción}
+
+    \begin{itemize}
+        \item $B+(BA) = B$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 1 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $B+(BA)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\linewidth]{Com/B+(BA).png}
+                \caption{Circuito de $B+(BA)$.}
+            \end{figure}
+        
+        \newpage
+        \item $B(B+A) = B$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 1 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $B(B+A)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/B(B+A).png}
+                \caption{Circuito de $B(B+A)$.}
+            \end{figure}
+        
+        \item $A + \bar{A}B = A+B$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 1 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 1 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A + \bar{A}B$.}
+            \end{table}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth]{Com/A+(A'B).png}
+                \caption{Circuito de $A + \bar{A}B$.}
+            \end{figure}
+        
+        \newpage
+
+        \item $A (\bar{A}+B) = AB$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 0 \\ \hline
+                    0& 1& 0 \\ \hline
+                    1& 1& 0 \\ \hline
+                    1& 0& 1 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $A (\bar{A}+B)$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\linewidth]{Com/A(A'+B).png}
+                \caption{Circuito de $A (\bar{A}+B)$.}
+            \end{figure}
+
+    \end{itemize}
+
+
+    \subsection{Ley de Involución.}
+
+    \begin{itemize}
+        \item $\bar{\bar{A}} = A$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|} \hline
+                    A& X \\ \hline
+                    0& 1 \\ \hline
+                    1& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $\bar{\bar{A}}$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\linewidth]{Com/A''.png}
+                \caption{Circuito de $\bar{\bar{A}}$}
+            \end{figure}
+
+    \end{itemize}
+    \newpage
+
+    \subsection{Teorema de DeMorgan.}
+
+    \begin{itemize}
+        \item $(A+B)' = A'B'$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 1 \\ \hline
+                    0& 1& 0 \\ \hline
+                    1& 1& 0 \\ \hline
+                    1& 0& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $(A+B)'$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\linewidth]{Com/(A+B)'.png}
+                \caption{Circuito de $(A+B)'$}
+            \end{figure}
+        
+        \item $(AB)' = A'+B'$
+            \begin{table}[H]
+                \Large \centering
+                \begin{tabular}{|c|c|c|} \hline
+                    A& B& X \\ \hline
+                    0& 0& 1 \\ \hline
+                    0& 1& 1 \\ \hline
+                    1& 1& 1 \\ \hline
+                    1& 0& 0 \\ \hline
+                \end{tabular}
+                \caption{Tabla de verdad de $(AB)'$.}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\linewidth]{Com/(AB)'.png}
+                \caption{Circuito de $(AB)'$}
+            \end{figure}
+    \end{itemize}
+
+\section{Conclusiones.}
+Si bien estas son las leyes lógicas más básicas son de suma importancia para la simplificación de expresiones lógicas donde hay una o más variables. Generalmente, algunas pueden parecer imprácticas pero en cierto orden pueden ser útiles, ya que puede que usar una te permita emplear otra ley.
+
+\section{Bibliografía.}
+
+Boolean Algebra Learning Resources. (2025). Boolean-Algebra.com. \url{https://www.boolean-algebra.com/learn}
+
+‌
+
+\end{document}

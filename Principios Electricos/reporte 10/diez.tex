@@ -1,0 +1,287 @@
+\documentclass{article}
+\usepackage[export]{adjustbox}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=1.2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{apacite,xurl,hyperref,pdfpages,graphicx,sectsty,ragged2e}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{float,array,listings,enumitem,subcaption,charter,amsfonts,amsthm,amsmath,mathtools}
+\newtheorem{theorem}{Caso}
+\sectionfont{\huge{}\underline\centering}
+\subsectionfont{\LARGE{}\centering\textit}
+\subsubsectionfont{\LARGE{}\centering\textbf}
+\usepackage[affil-it]{authblk}
+\renewcommand\Authfont{\fontsize{20}{25}\selectfont}
+\usepackage[tablename=Tabla ]{caption}
+\usepackage[figurename=Imagen ]{caption}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tab}{$\quad$}
+
+\begin{document}
+\includepdf{portada lab.pdf}
+\LARGE
+\tableofcontents\newpage
+
+\justifying
+
+\Large
+
+\section{Desarrollo y resultados.}
+
+    \subsection{Punto 1: Medio sumador.}
+    Primero, se debe armar el siguiente circuito:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7 \linewidth]{Com/1. SumE.png}
+            \caption{Circuito de medio sumador.}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5 \linewidth]{Com/1. TablaV.png}
+            \caption{Tabla de verdad de el medio sumador.}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{subfigure}[H]{0.5\textwidth}
+                \centering
+                \includegraphics[width=1\linewidth,height=0.8\linewidth]{Com/1. Sum1.png}
+                \caption{A = 0 y B = 0.}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1\linewidth,height=0.8\linewidth]{Com/1. Sum2.png}
+                \caption{A = 0 y B = 1}
+            \end{subfigure}
+        \end{figure}
+
+        \begin{figure}[H]\ContinuedFloat
+            \begin{subfigure}[H]{0.5\textwidth}
+                \centering
+                \includegraphics[width=1\linewidth,height=0.8\linewidth]{Com/1. Sum3.png}
+                \caption{A = 1 y B = 1.}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1\linewidth,height=0.8\linewidth]{Com/1. Sum4.png}
+                \caption{A = 1 y B = 0}
+            \end{subfigure}
+
+            \caption{Circuito en cada una de las combinaciones.}
+        \end{figure}
+
+    El LED verde simboliza el acarreo mientras que el LED rojo es el de la suma. Para evitar el usar dos fuentes se usó el dip switch para cada las dos señales (A y B) configurando las resistencias en \textit{pull-up}. Se usaron únicamente dos compuertas de 4 entradas (XOR y AND).
+
+    \subsection{Punto 2: Mapas K.}
+    Para el siguiente circuito se usa la siguiente expresión lógica:
+
+    $$A'B'C' + ABC' + ABC$$
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.65\linewidth]{Com/2.1 CircSim.png}
+            \caption{Representación de la expresión lógica.}
+        \end{figure}
+
+    Ahora, lo se arma en Tinkercad.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{Com/2.2 CircTin.png}
+            \caption{Expresión lógica en circuito.}
+        \end{figure}
+
+    Al igual que el circuito anterior se usó un DIP switch con resistencias en configuración \textit{pull-up}. En este caso, tendríamos 3 variables, obteniendo así 8 posibles combinaciones. Debido a que las compuertas AND solo tienen 4 \textit{outputs} y en el diagrama se ocupan 6 compuertas AND para los productos se agregó una AND adicional. Para las demás compuertas se usó un inversor y un OR que haría las 2 sumas.
+
+    Se construye el mapa K:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\linewidth]{Com/2.3 Mapa K.png}
+            \caption{Mapa K de la expresión.}
+        \end{figure}
+
+    Se ocupa simplifcar la expresión: $A'B'C' + ABC' + ABC$
+
+        \begin{enumerate}
+            \item $A'B'C' + ABC'+ ABC \\ \text{Aplicamos ley distributiva: }\quad xy + xz = x(y+z) \quad \quad x= AB\quad  y=C'\quad z=C$
+            \item $A'B'C' + AB(C'+C) \\ \text{Aplicamos ley de complemento }  C' + C = 1$
+            \item $A'B'C' + AB$
+        \end{enumerate}
+
+    La expresión simplificada es: $A'B'C' + AB$.\newline
+
+    Tenemos que demostrar que en ambos circuitos, todas las combinaciones deben de dar el mismo resultado.\newline
+    
+        \begin{figure}[H]
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.65\linewidth]{Com/2.4 MapaKC 1.png}
+                \caption{A = 0 B = 0 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.65\linewidth]{Com/2.4 MapaKC 2.png}
+                \caption{A = 0 B = 0 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 3.png}
+                \caption{A = 0 B = 1 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 4.png}
+                \caption{A = 0 B = 1 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 5.png}
+                \caption{A = 1 B = 0 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 6.png}
+                \caption{A = 1 B = 0 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 7.png}
+                \caption{A = 1 B = 1 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 MapaKC 8.png}
+                \caption{A = 1 B = 1 C = 1}
+            \end{subfigure}
+            \caption{Circuito de la función original.}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.65\linewidth]{Com/2.4 Mapa KCS 1.png}
+                \caption{A = 0 B = 0 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.65\linewidth]{Com/2.4 Mapa KCS 2.png}
+                \caption{A = 0 B = 0 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 3.png}
+                \caption{A = 0 B = 1 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 4.png}
+                \caption{A = 0 B = 1 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 5.png}
+                \caption{A = 1 B = 0 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 6.png}
+                \caption{A = 1 B = 0 C = 1}
+            \end{subfigure}
+
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 7.png}
+                \caption{A = 1 B = 1 C = 0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[H]{0.5\textwidth}
+                \RaggedRight
+                \includegraphics[width=1.05\linewidth,height=0.62\linewidth]{Com/2.4 Mapa KCS 8.png}
+                \caption{A = 1 B = 1 C = 1}
+            \end{subfigure}
+            \caption{Circuito de la función simplificada.}
+        \end{figure}
+
+        Como se puede observar, en ambos circuitos todas las combinaciones dan el mismo resultado. La simplificación de expresiones nos resulta muy útil.
+        
+    \subsection{Punto 3: Timer 555}
+
+    Se nos pide construir un circuito de un Timer 555 en modo Monoestable y en Astable. Para el Monoestable, se debe encender un foco LED por 25 segundos al presionar el \textit{push button}. 
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\linewidth]{Com/3.1 DTim555M.png}
+            \caption{Diagrama de referencia del Timer 555 modo Monoestable.}
+        \end{figure}
+    
+    Para obtener un tiempo de 25 segundos se empleó de la fórmula: $t= 1*1 * R_A *C$. Donde $R_A$ es el valor de la resistencia y $C$ la capacitancia del capacitor. Consideramos que el tiempo es de 25 s y la capacitancia es de 500$\mu$F.
+    
+    $$25 \text{ s}= 1.1*(\text{x }\Omega ) * 500 \mu \text{F}$$
+    $$25 \text{ s}= 0.00055*(\text{x }\Omega )*\text{F}$$
+    $$x = \frac{25 \text{ s}}{0.00055 \text{F}} = 45454.54 \Omega$$
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{Com/3.1 Timer555M.png}
+            \caption{Circuito del Timer 555 modo Monoestable.}
+        \end{figure}
+
+    Finalmente, para el modo Astable se debe quitar el \textit{push button}, se agrega una resistencia extra. Para la terminal \textit{trigger}, se conecta un cable en la misma columna que la terminal \textit{threshold}. Todo esto para que el circuito tenga un ciclo de apagado y prendido automático.
+
+    \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\linewidth]{Com/3.2 DTim555A.png}
+            \caption{Diagrama de referencia del Timer 555 modo Monoestable.}
+        \end{figure}
+
+    En este caso, ocupamos un tiempo de encendido de 15 segundos y de apagado de 5 segundos. Usaremos dos fórmulas $t_1 = 0.693 * (R_A+R_B) * C$ y $t_2 = 0.693*R_B * C$. Considerando que $t_1 = 15 s$, $t_2 = 5 s$ y $C = 500\mu\text{F}$ tendremos que resolver un sistema de ecuaciones.
+
+    $$ 0.693 * (R_A+R_B) * 500\mu\text{F} = 15s$$
+    $$ 0.693 * R_B * 500\mu\text{F} = 5s$$ 
+    
+    $$ 346.5\mu R_A + 346.5\mu R_B = 15s$$
+    $$ 346.5\mu R_B = 5s$$
+        
+        \begin{table}[H]
+            \centering \Large
+            \begin{tabular}{c}
+                $ 346.5\mu R_A + 346.5\mu R_B = 215s$ \\
+                $ -346.5\mu R_B = -5s$ \\ \hline
+                $ 346.5\mu R_A = 10s$
+            \end{tabular}
+        \end{table}
+    $$R_A = 28860 \Omega$$
+
+    $$346.5\mu (28860) + 346.5\mu R_B = 15s$$
+    $$ 9.9990 + 346.5\mu R_B = 15s$$
+    $$ 346.5\mu R_B = 15s - 9.9999$$
+    $$ R_B = \frac{5.0001}{346.5\mu} = 14430 \Omega $$
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{Com/3.2 Timer555A.png}
+            \caption{Circuito del Timer 555 modo Aestable.}
+        \end{figure}
+    
+    Para el Astable, cuando se enciende la primera vez el LED se enciende por aproximadamente 24/25 segundos, esto ya que esta descargado el capacitor polarizado, después se apaga por 5 segundos y empieza el ciclo de 15 segundos encendido y 5 segundos apagado.
+
+\section{Conclusiones.}
+    Los medios sumadores nos son útiles para realizar operaciones básicas de suma en sistemas digitales. Los mapas de Karnaugh son clave para simplificar expresiones lógicas y optimizar circuitos así ahorrando mucho tiempo y dinero. Por su parte, el timer 555 es un componente muy versátil: en modo monoestable genera un solo pulso controlado, y en modo astable produce señales continuas, útiles para temporizadores y osciladores. Estos conceptos son fundamentales en el diseño eficiente de sistemas electrónicos.
+
+\end{document}

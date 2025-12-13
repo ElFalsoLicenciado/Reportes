@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[export]{adjustbox}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=1.2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+\usepackage[strict]{changepage}
+\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{apacite,xurl,hyperref,pdfpages,graphicx,sectsty,ragged2e}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{float,array,listings,enumitem,subcaption,charter,amsfonts,amsthm,amsmath,mathtools}
+\newtheorem{theorem}{Caso}
+\sectionfont{\huge{}\underline\centering}
+\subsectionfont{\LARGE{}\centering\textit}
+\subsubsectionfont{\LARGE{}\centering\textbf}
+\usepackage[affil-it]{authblk}
+\renewcommand\Authfont{\fontsize{20}{25}\selectfont}
+\usepackage[tablename=Tabla ]{caption}
+\usepackage[figurename=Imagen ]{caption}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tab}{$\quad$}
+
+\begin{document}
+% 
+\includepdf{portada lab.pdf}
+% 
+
+\LARGE
+\tableofcontents\newpage
+
+\justifying
+
+\Large
+
+\section{Introducción}
+\textbf{Circuito Lógico Combinacional (CLC):}
+
+Definición:	circuito encargado de procesar (transformar) las señales binarias (información digital). \newline
+
+Se puede representar como una «caja negra» (abstracción) con los siguientes componentes:
+
+\begin{itemize}
+    \item Una ó más entradas (señales binarias).
+    \item Una ó	más salidas (señales binarias).
+    \item Funcionalidad describiendo la relación entre entradas y salidas.
+    \item \textit{Timing}: determina el retraso entre el cambio de una entrada y la respuesta de una salida.
+\end{itemize}
+
+
+
+
+\section{Desarrollo}
+
+    \subsection{Parte 1 (\it{Sesión 12/09/2025})}
+
+        \subsubsection{Sumador de 4 bits}
+
+
+        \subsubsection{Restador de 2 bits}
+
+    \subsection{Parte 2 (\it{Sesión 19/09/2025})}
+
+        \subsubsection{Sumador y restador con complemento a 1 y 2}
+
+
+\section{Conclusiones.}
+
+\section{Bibliografía}
+Abad, P., \& Torralbo, P. (n.d.). Tema 3. Circuitos Lógicos Combinacionales Sistemas Digitales \url{https://ocw.unican.es/pluginfile.php/2410/course/section/2423/tema_03.pdf}
+
+‌
+\end{document}
