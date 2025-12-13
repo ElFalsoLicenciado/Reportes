@@ -53,24 +53,79 @@
 
         Por otro lado, el flujo de datos es el conjunto de datos sobre los cuales se ejecutan las instrucciones. Volviendo al ejemplo matemático anterior, los números que se sumarían o restarían serían el flujo de datos en un procesador.\newline
 
-        
 
+        La taxonomía de Flynn divide los sistemas en cuatro categorías:
 
-
+        \begin{itemize}
+            \item \textbf{SISD} (Single Instruction, Single Data): es el modelo de computadora más simple, en el cual una sola instrucción opera en un solo flujo de datos. La mayoría de los primeros chips funcionaban de esta manera.
+            
+            \item \textbf{MISD} (Multiple Instruction, Single Data): varias instrucciones se ejecutan sobre los mismos datos. Es un modelo teórico e inusual en el mundo real.
+            
+            \item \textbf{SIMD} (Single Instruction, Multiple Data): una sola instrucción se aplica a varios flujos de datos simultáneamente. Puede ser útil en procesadores vectoriales, como los utilizados en NPUs para inteligencia artificial.
+            
+            \item \textbf{MIMD} (Multiple Instruction, Multiple Data): varias instrucciones operan en varios flujos de datos. Es el modelo más utilizado en los procesadores modernos con múltiples núcleos y se puede encontrar en todas las categorías de dispositivos electrónicos, desde pequeños teléfonos inteligentes hasta grandes servidores.
+        \end{itemize}
     
-        \subsection{SISD}
+        \newpage
 
+        \subsection{SISD (Single Instruction, Single Data)}
+            Flujo único de instrucciones y flujo único de datos. Una computadora secuencial que no aprovecha el paralelismo ni en las instrucciones ni en los flujos de datos. La unidad de control único (CU) obtiene un único flujo de instrucciones (IS) de la memoria. Luego, la CU genera señales de control apropiadas para dirigir un solo elemento de procesamiento (PE) para operar en un solo flujo de datos (DS), es decir, una operación a la vez.\newline
+
+            Ejemplos de arquitecturas SISD son las máquinas tradicionales de un solo procesador, como las computadoras personales (PC) más antiguas (en 2010, muchas PC tenían varios núcleos) y las computadoras centrales.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.35 \linewidth]{img/SISD.png}
+                \caption{Diseño de la taxonomía SISD.}
+            \end{figure}
         
-        \subsection{SIMD}
+        \subsection{SIMD (Single Instruction, Multiple Data)}
+            Flujo de instrucción simple y flujo de datos múltiple. Esto significa que una única instrucción es aplicada sobre diferentes datos al mismo tiempo. En las máquinas de este tipo, varias unidades de procesado diferentes son invocadas por una única unidad de control. Al igual que las MISD, las SIMD soportan procesamiento vectorial (matricial) asignando cada elemento del vector a una unidad funcional diferente para procesamiento concurrente.\newline
+
+            El artículo de Flynn de 1972 subdividió SIMD en tres categorías adicionales:\newline
+
+            \begin{itemize}
+                \item \textbf{Procesador de rayos}: Estos reciben la instrucción (samo) pero cada unidad de procesamiento paralelo tiene su propio archivo de memoria y registro separado y distinto.
+                
+                \item \textbf{Procesador de tuberías}: Estos reciben la instrucción (samo) pero luego leen los datos de un recurso central, cada uno procesa fragmentos de esos datos, luego escribe los resultados al mismo recurso central. En la Figura 5 del papel de Flynn 1972 que el recurso es la memoria principal: para las CPU modernas que el recurso es ahora más típicamente el archivo de registro.
+                
+                \item \textbf{Procesador asociado}: Estos reciben la instrucción (samo) pero en cada unidad de procesamiento paralelo una independiente se toma la decisión sobre la base de datos local a la unidad, en cuanto a si realizar la ejecución o si saltarla. En terminología moderna esto se conoce como "predicado" (masked) SIMD.
+            \end{itemize}
 
 
-        \subsection{MISMD}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.35 \linewidth]{img/SIMD.png}
+                \caption{Diseño de la taxonomía SIMD.}
+            \end{figure}
 
 
-        \subsection{MIMD}
-        
+        \subsection{MISD (Multiple Instruction, Single Data)}
+            Flujo múltiple de instrucciones y único flujo de datos. Esto significa que varias instrucciones actúan sobre el mismo y único trozo de datos. Este tipo de máquinas se pueden interpretar de dos maneras. Una es considerar la clase de máquinas que requerirían que unidades de procesamiento diferentes recibieran instrucciones distintas operando sobre los mismos datos. Esta clase de arquitectura ha sido clasificada por numerosos arquitectos de computadores como impracticable o imposible, y en estos momentos no existen ejemplos que funcionen siguiendo este modelo. \newline
+            
+            Las arquitecturas segmentadas, o encauzadas, realizan el procesamiento vectorial a través de una serie de etapas, cada una ejecutando una función particular produciendo un resultado intermedio. La razón por la cual dichas arquitecturas son clasificadas como MISD es que los elementos de un vector pueden ser considerados como pertenecientes al mismo dato, y todas las etapas del cauce representan múltiples instrucciones que son aplicadas sobre ese vector.
 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.35 \linewidth]{img/MISD.png}
+                \caption{Diseño de la taxonomía MISD.}
+            \end{figure}
 
+        \subsection{MIMD (Multiple Instruction, Multiple Data)}
+            Flujo de instrucciones múltiple y flujo de datos múltiple. Son máquinas que poseen varias unidades procesadoras en las cuales se pueden realizar múltiples instrucciones sobre datos diferentes de forma simultánea. Las MIMD son las más complejas, pero son también las que potencialmente ofrecen una mayor eficiencia en la ejecución concurrente o paralela. Aquí la concurrencia implica que no sólo hay varios procesadores operando simultáneamente, sino que además hay varios programas (procesos) ejecutándose también al mismo tiempo.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.35 \linewidth]{img/MIMD.png}
+                \caption{Diseño de la taxonomía MIMD.}
+            \end{figure}
+
+        \subsection{Resumen}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8 \linewidth]{img/Resumen Flynn.png}
+            \end{figure}
+    
     \section{Multiprocesamiento}
 
         \subsection{Simétrico (SMP)}
@@ -103,6 +158,14 @@
     Adictech. (2024, April 9). ¿Qué es la Computación Paralela?: Beneficios y Aplicaciones. Adictec - Adicción Por La Tecnología. \url{https://adictec.com/que-es-computacion-paralela/}
 
     de, B. (2025). Curso - 4.1 Aspectos Básicos de la Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-1-aspectos-b%C3%A1sicos-de-la-computaci%C3%B3n-paralela}
+
+    Taxonomía de Flynn  AcademiaLab. (2024). Academia-Lab.com. \url{https://academia-lab.com/enciclopedia/taxonomia-de-flynn/}
+
+    de, T. (2025). Curso - 4.2 Tipos de Computación Paralela. Google.com. \url{https://sites.google.com/itmexicali.edu.mx/arquitectura-de-computadoras/4-procesamiento-paralelo/4-2-tipos-de-computaci%C3%B3n-paralela?authuser=0}
+
+‌
+
+‌
 
 ‌
 ‌
