@@ -45,7 +45,7 @@
             \caption{Imagen de ilustracion.}
         \end{figure}
 
-    \section{Taxonomía de Flynn}
+    \section{Taxonomía de Flynn.}
         
         La taxonomía de Flynn es un sistema de clasificación de arquitecturas que se basa en la idea de cuántos flujos de instrucciones y cuántos flujos de datos puede manipular una computadora simultáneamente. Fue creada por el científico de la computación Michael J. Flynn en 1966 y se utiliza hasta el día de hoy en el concepto de computación paralela.\newline
 
@@ -76,7 +76,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.35 \linewidth]{img/SISD.png}
-                \caption{Diseño de la taxonomía SISD.}
+                \caption{Diseño de la categoría SISD.}
             \end{figure}
         
         \subsection{SIMD (Single Instruction, Multiple Data)}
@@ -96,7 +96,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.35 \linewidth]{img/SIMD.png}
-                \caption{Diseño de la taxonomía SIMD.}
+                \caption{Diseño de la categoría SIMD.}
             \end{figure}
 
 
@@ -108,7 +108,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.35 \linewidth]{img/MISD.png}
-                \caption{Diseño de la taxonomía MISD.}
+                \caption{Diseño de la categoría MISD.}
             \end{figure}
 
         \subsection{MIMD (Multiple Instruction, Multiple Data)}
@@ -117,7 +117,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.35 \linewidth]{img/MIMD.png}
-                \caption{Diseño de la taxonomía MIMD.}
+                \caption{Diseño de la categoría MIMD.}
             \end{figure}
 
         \subsection{Resumen}
@@ -127,7 +127,7 @@
                 \caption{Resumen de los diseños de cada taxonmía}
             \end{figure}
     
-    \section{Multiprocesamiento}
+    \section{Multiprocesamiento.}
         Multiprocesamiento o multiproceso es el uso de dos o más procesadores (CPU) en una computadora para la ejecución de uno o varios procesos (programas corriendo). Algunas personas, en el idioma español hacen sinónimo este término con el de multitareas (del inglés multitasking) el cual consiste en la ejecución de uno o más procesos concurrentes en un sistema. Así como la multitarea permite a múltiples procesos compartir una única CPU, múltiples CPU pueden ser utilizados para ejecutar múltiples procesos o múltiples hilos (threads) dentro de un único proceso.\newline
 
         El multiprocesamiento se ha empleado desde los años 60 en los entornos de cómputo de alto rendimiento; a pesar de esto, durante muchos años no muchos tomaban esta área de especialización, una computadora que contara con más de un procesador era cara y debido a esto muchos decidían no hacer uso de más de un procesador. Hasta que en 2005 y después de cumplirse 40 años del modelo conocido como Ley de Moore, se empezaron a exceder los 3 GHz de velocidad de esta manera creando problemas de calentamiento motivando el uso de múltiples procesadores. \newpage
@@ -141,7 +141,7 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.7 \linewidth]{img/SMP.png}
-                \caption{}
+                \caption{Diseño del tipo SMP}
             \end{figure}
 
             \newpage
@@ -152,7 +152,7 @@
         \subsection{Cluster}
             Un clúster es un tipo de arquitectura paralela distribuida que consiste de un conjunto de computadores independientes interconectados operando de forma conjunta como único recurso computacional sin embargo, cada computador puede utilizarse de forma independiente o separada.\newline
 
-            En esta arquitectura, el computador paralelo es esencialmente una colección de procesadores secuenciales, cada uno con su propia memoria local, que pueden trabajar conjuntamente.\newline
+            En esta arquitectura, el computador paralelo es esencialmente una colección de procesadores secuenciales, cada uno con su propia memoria local, que pueden trabajar conjuntamente.\vspace{3px}
 
             \begin{itemize}
                 \item Cada nodo tiene rápido acceso a su propia memoria y acceso a la memoria de otros nodos mediante una red de comunicaciones, habitualmente una red de comunicaciones de alta velocidad. 
@@ -160,29 +160,210 @@
                 \item Los datos son intercambiados entre los nodos como mensajes a través de la red. 
 
                 \item Una red de ordenadores, especialmente si disponen de una interconexión de alta velocidad, puede ser vista como un multicomputador de memoria distribuida y como tal ser utilizada para resolver problemas mediante computación paralela.
-            \end{itemize}
+            \end{itemize} \vspace{3px}
 
             La construcción de los ordenadores del clúster es más fácil y económica debido a su flexibilidad: pueden tener toda la misma configuración de hardware y sistema operativo diferente rendimiento pero con arquitectura y sistemas operativos similares o tener diferente hardware y sistema operativo lo que hace más fácil y económica su construcción. Para que un clúster funcione como tal no basta solo con conectar entre si los ordenadores, sino que es necesario proveer un sistema de manejo del clúster, el cual se encargue de interactuar con el usuario y los procesos que ocurren en él para optimizar el funcionamiento. 
 
 
-    \section{Tipos de paralelismo}
+    \section{Tipos de paralelismo.}
         Una de las características clave del multiprocesamiento es la capacidad de realizar múltiples tareas al mismo tiempo. Esto se logra al distribuir las tareas entre los diferentes procesadores, lo que permite una mayor eficiencia en el manejo de la carga de trabajo.\newline
         
-        
-        \subsection{A nivel de bit}
+        El paralelismo puede estudiarse a varios niveles:
 
+        \begin{itemize}
+            \item \textbf{Trabajo}: Dos programas distintos pueden ejecutarse en paralelo.
+            
+            \item \textbf{Tarea}: En este nivel se consideran varias tareas independientes entre si formando parte de un programa determinado. Es posible la interacción de las tareas.
+            
+            \item \textbf{Proceso}: Varios procesos componen una tarea. Son bloques con funcionalidad bien definida.
+            
+            \item \textbf{Variable}: El paralelismo puede darse a nivel de variables ya que varias instrucciones pueden ser ejecutadas en paralelo siendo el punto de conflicto las variables en común.
+            
+            \item \textbf{Bit}: Todos los computadores usan paralelismo a nivel de bit.
+        \end{itemize}\vspace{5px}
+
+
+        Algunos ámbitos en los que se usa la computación paralela.\vspace{5px}
+        
+        \begin{itemize}
+            \item Simulación de modelos complejos
+            
+            \item Diseño y automatización de proyectos de ingeniería
+            
+            \item Exploración petrolera y minera
+            
+            \item Medicina
+            
+            \item Área militar
+            
+            \item Cine: efectos visuales, animación 3D
+            
+            \item Realidad Virtual
+            
+            \item Comercio electrónico
+            
+            \item Mega bases de datos (google, youtube, rapidshare)
+        \end{itemize}
+
+        \subsection{A nivel de bit}
+            Se habla de paralelismo al nivel de bit, cuando se aumenta el tamaño de la palabra del procesador (tamaño de la cadena de bits a procesar). Este aumento reduce el número de instrucciones que tiene que ejecutar el procesador en variables cuyos tamaños sean mayores a la longitud de la cadena.\newline
+            
+            Ejemplo: En un procesador de 8-bits sumar dos números de 16bits tomaría dos instrucciones. En un procesador de 16-bits esa operación requiere solo una instrucción.\newline
+
+            Desde el advenimiento de la integración a gran escala (VLSI) como tecnología de fabricación de chips de computadora en la década de 1970 hasta alrededor de 1986, la aceleración en la arquitectura de computadores se lograba en gran medida duplicando el tamaño de la palabra en la computadora, la cantidad de información que el procesador puede manejar por ciclo.\newline
+
+            El aumento del tamaño de la palabra reduce el número de instrucciones que el procesador debe ejecutar para realizar una operación en variables cuyos tamaños son mayores que la longitud de la palabra.\newline
+
+            Históricamente, los microprocesadores de 4 bits fueron sustituidos por unos de 8 bits, luego de 16 bits y 32 bits, esta tendencia general llegó a su fin con la introducción de procesadores de 64 bits, lo que ha sido un estándar en la computación de propósito general durante la última década.
         
         \subsection{A nivel de instrucción}
+            Un programa de ordenador es, en esencia, una secuencia de instrucciones ejecutadas por un procesador. Estas instrucciones pueden reordenarse y combinarse en grupos que luego son ejecutadas en paralelo sin cambiar el resultado del programa. Esto se conoce como paralelismo a nivel de instrucción. Los avances en el paralelismo a nivel de instrucción dominaron la arquitectura de computadores desde mediados de 1980 hasta mediados de la década de 1990.\newline
 
+            Los procesadores modernos tienen ''pipeline'' de instrucciones de varias etapas. Cada etapa en el pipeline corresponde a una acción diferente que el procesador realiza en la instrucción correspondiente a la etapa; un procesador con un pipelinede N etapas puede tener hasta n instrucciones diferentes en diferentes etapas de finalización.\newline
+
+            Además del paralelismo a nivel de instrucción del pipelining, algunos procesadores pueden ejecutar más de una instrucción a la vez. Estos son conocidos como procesadores superescalares. Las instrucciones pueden agruparse juntas sólo si no hay dependencia de datos entre ellas.
 
         \subsection{De datos}
+            El paralelismo de datos es el paralelismo inherente en programas con ciclos, que se centra en la distribución de los datos entre los diferentes nodos computacionales que deben tratarse en paralelo. La paralelización de ciclos conduce a menudo a secuencias similares de operaciones —no necesariamente idénticas— o funciones que se realizan en los elementos de una gran estructura de datos. Muchas de las aplicaciones científicas y de ingeniería muestran paralelismo de datos.\newline
 
+            Una dependencia de terminación de ciclo es la dependencia de una iteración de un ciclo en la salida de una o más iteraciones anteriores. Las dependencias de terminación de ciclo evitan la paralelización de ciclos.\newline
+
+            Extensiones vectoriales como SSE, AVX o NEON permiten aplicar una misma instrucción sobre varios datos simultáneos. Es ideal para operaciones uniformes sobre arreglos: procesamiento de imágenes, señales o vectores numéricos. Requiere que los datos estén alineados y que las operaciones sean homogéneas para evitar divergencias.\vspace{5px}
+            
+            \begin{itemize}
+                \item \textbf{Beneficio}: gran aumento del throughput (cantidad de trabajo completado por unidad de tiempo) sin aumentar el número de hilos.
+                
+                \item \textbf{Condiciones}: datos contiguos y alineados, bucles vectorizables y pocas dependencias.
+                
+                \item \textbf{Limitación}: código con muchas ramas o acceso irregular a memoria pierde eficiencia vectorial.
+            \end{itemize}
+            \newpage
 
         \subsection{De tareas}
+            Divide el problema en tareas independientes que pueden ejecutarse en paralelo. Cada tarea puede tener diferente trabajo y duración. Se implementa con hilos, pools de tareas o frameworks específicos. Funciona bien cuando el problema se puede fragmentar en unidades que comparten poco estado y pueden balancearse entre núcleos.\newline
+
+            El desafío principal es el balanceo de carga: tareas muy desiguales dejan núcleos ociosos. Estrategias como dividir en unidades más pequeñas (work stealing) ayudan a usar todo el hardware disponible.
     
-    
+    \section{Cuestionario.}
+        \begin{enumerate}
+            \item \textbf{¿Qué caracteriza a la arquitectura MIMD?} \textit{Se caracteriza por tener múltiples flujos de instrucciones y múltiples flujos de datos, permitiendo que varios procesadores ejecuten diferentes instrucciones sobre distintos datos de forma simultánea.}
+            
+            \item \textbf{Las arquitecturas MIMD permiten la ejecución concurrente de varios programas al mismo tiempo.} \textit{Verdadero} 
+            
+            \item \textbf{¿Cuál de las siguientes arquitecturas es la más compleja pero también la más eficiente para ejecución paralela?} 
+            \textit{\begin{enumerate}
+                \renewcommand{\labelenumi}{\alph{enumi})}
+                \item SISD
+                \item SIMD
+                \item MISMD
+                \item MIMD
+            \end{enumerate}}
+            \textit{Respuesta correcta: d) MIMD}
+
+            \item \textbf{¿Qué es el multiprocesamiento?} \textit{Es el uso de dos o más procesadores (CPU) en una computadora para ejecutar uno o varios procesos de manera simultánea.}
+            
+            \item \textbf{Multiprocesamiento y multitarea significan exactamente lo mismo.
+            } \textit{Falso}
+            \newpage
+
+            \item \textbf{¿Cuál fue una de las principales razones para el auge del multiprocesamiento después de 2005?} \textit{Las limitaciones de velocidad por calentamiento al superar los 3 GHz, lo que motivó el uso de múltiples procesadores en lugar de aumentar la frecuencia.}
+            
+            \item \textbf{¿Qué ley se menciona en relación con el crecimiento del hardware y sus límites?
+            } \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item Ley de Amdahl
+                    \item Ley de Shannon
+                    \item Ley de Moore
+                    \item Ley de Newton
+                \end{enumerate}}
+            \textit{Respuesta correcta: c) Ley de Moore}
+            
+            \item \textbf{¿Qué es un sistema SMP?} \textit{Es una arquitectura de multiprocesamiento simétrico donde varios procesadores idénticos comparten una sola memoria principal y están controlados por un único sistema operativo.}
+            
+            \item \textbf{En un sistema SMP, algunos procesadores están reservados para tareas especiales.} \textit{Falso}
+            
+            \item \textbf{¿Qué componente comparten todos los procesadores en una arquitectura SMP?} \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item Caché privada
+                    \item Memoria principal
+                    \item Sistema Operativo distinto
+                    \item GPU dedicada
+                \end{enumerate}}
+            \textit{Respuesta correcta: b) Memoria principal}
+            
+            \item \textbf{¿Qué significa multiprocesamiento heterogéneo?} \textit{Es un enfoque que utiliza diferentes tipos de procesadores o arquitecturas (CPU, GPU, FPGA) para ejecutar tareas específicas aprovechando sus fortalezas.}
+            
+            \item \textbf{El procesamiento heterogéneo ayuda a mejorar la eficiencia energética y el rendimiento.
+            } \textit{Verdadero}
+            
+            \item \textbf{¿Qué es un clúster de computadoras?} \textit{Es una arquitectura paralela distribuida formada por computadoras independientes interconectadas que trabajan juntas como un único recurso computacional.}
+            \newpage            
+
+            \item \textbf{¿Cómo intercambian datos los nodos de un clúster?} \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item Mensajes a través de la red
+                    \item Registros internos
+                    \item Memoria compartida
+                    \item Caché global
+                \end{enumerate}}
+            \textit{Respuesta correcta: a) Mensajes a través de la red}
+
+            \item \textbf{Un clúster solo funciona si todos los nodos tienen exactamente el mismo hardware y sistema operativo.} \textit{Falso}
+            
+            \item \textbf{¿Qué es el paralelismo a nivel de bit?} \textit{Es el paralelismo que se logra aumentando el tamaño de la palabra del procesador, permitiendo procesar más bits por instrucción.}
+            
+            \item \textbf{¿Qué tamaño de palabra es el estándar actual en la computación de propósito general?} \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item 16 bits
+                    \item 32 bits
+                    \item 64 bits
+                    \item 128 bits
+                \end{enumerate}}
+            \textit{Respuesta correcta: c) 64 bits}
+            
+            \item \textbf{El paralelismo a nivel de bit reduce el número de instrucciones necesarias para operar con datos grandes.} \textit{Verdadero}
+            
+            \item \textbf{¿Qué es el paralelismo a nivel de instrucción?} \textit{Es la ejecución simultánea de varias instrucciones reorganizadas de manera que no alteren el resultado del programa.}
+            
+            \item \textbf{¿Cómo se llama la técnica que divide la ejecución de una instrucción en varias etapas?} \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item Multitarea
+                    \item Pipeline
+                    \item Clustering
+                    \item Vectorización
+                \end{enumerate}}
+            \textit{Respuesta correcta: b) Pipeline}
+            
+            \item \textbf{Los procesadores superescalares pueden ejecutar más de una instrucción al mismo tiempo.} \textit{Verdadero}
+            
+            \item \textbf{¿Qué es el paralelismo de datos?} \textit{Es la ejecución paralela de operaciones similares sobre distintos elementos de una estructura de datos, común en ciclos y aplicaciones científicas.}
+            
+            \item \textbf{¿Qué extensiones permiten aplicar una instrucción a varios datos simultáneamente?} \textit{
+                \begin{enumerate}
+                    \renewcommand{\labelenumi}{\alph{enumi})}
+                    \item HTTP, FTP
+                    \item BIOS, UEFI
+                    \item RAID, LVM
+                    \item SSE, AVX, NEO 
+                \end{enumerate}}
+            \textit{Respuesta correcta: d) SSE, AVX, NEO}
+
+            \item \textbf{El código con muchas ramas pierde eficiencia en el paralelismo vectorial.} \textit{Verdadero}
+            
+            \item \textbf{¿Cuál es el principal desafío del paralelismo de tareas?} \textit{El balanceo de carga, ya que tareas desiguales pueden dejar algunos núcleos ociosos.}
+            
+        \end{enumerate}
+
+
     \section{Conclusión.}
-    
+        La computación paralela y el multiprocesamiento representan una evolución clave en la arquitectura de los sistemas de cómputo modernos. A través de taxonomías como SISD, SIMD, MISD y MIMD, así como de arquitecturas como SMP, sistemas heterogéneos y clústeres, es posible aprovechar mejor los recursos de hardware para ejecutar múltiples instrucciones y procesar grandes volúmenes de datos de manera simultánea. Los distintos tipos de paralelismo (a nivel de bit, instrucción, datos y tareas) permiten optimizar el rendimiento, la eficiencia y la escalabilidad de los sistemas, siendo fundamentales en áreas científicas, industriales y comerciales actuales.
+
+    \newpage
     
     \section{Bibliografía.}
     \begin{enumerate}
@@ -204,9 +385,12 @@
         
         \item Todo sobre el multiprocesamiento: definición y tipos más comunes. (2024). Venceya.com. \url{https://venceya.com/multiprocesamiento-en-que-consiste-tipos/}
         
-        \item 
+        \item Introducción a las Arquitecturas Paralelas. (n.d.). \url{https://users.exa.unicen.edu.ar/catedras/arqui2/arqui2/filminas/Introduccion%20a%20las%20arquitecturas%20Paralelas.pdf}
 
-‌ 
+‌        \item Programación Paralela. (2017). Github.io. \url{https://ferestrepoca.github.io/paradigmas-de-programacion/paralela/paralela_teoria/index.html#thirteen}
+
+        \item Moisset, D. (2025). Arquitecturas de Paralelismo. Tutorialesprogramacionya.com. \url{https://www.tutorialesprogramacionya.com/computacionparalelaconcurrente/introduccion/tema4.html}
+        ‌ 
     \end{enumerate}
 
 ‌
